@@ -1,0 +1,33 @@
+{
+  "name": "gulp-browserify-power-assert",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^4.2.3",
+    "espowerify": "^0.7.1",
+    "glob": "^4.0.4",
+    "gulp": "^3.8.6",
+    "gulp-connect": "^2.0.6",
+    "karma": "^0.12.17",
+    "karma-browserifast": "^0.6.1",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-mocha": "^0.1.6",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-safari-launcher": "^0.1.1",
+    "mocha": "^1.20.1",
+    "partialify": "^3.1.1",
+    "power-assert": "^0.7.2",
+    "uglifyify": "^2.5.0",
+    "vinyl-source-stream": "^0.1.1"
+  },
+  "dependencies": {
+    "vue": "^0.10.5",
+    "vue-touch": "0.0.1"
+  }
+}
