@@ -42,12 +42,11 @@ gulp.task('watch', ['server', 'test'], function(){
 
 gulp.task('test', function(){
   karma.start({
-    files: ['./public/all.js'],
     browsers: ['PhantomJS', 'Chrome', 'Safari'],
     frameworks: ['mocha', 'browserify'],
     browserify: {
-      files: ['./test/**/*.js'],
-      transform: ['espowerify']
+      files: ['./src/**/*.js', './test/**/*.js'],
+      transform: ['partialify', 'espowerify']
     },
     preprocessors: {
       "/**/*.browserify": "browserify"
