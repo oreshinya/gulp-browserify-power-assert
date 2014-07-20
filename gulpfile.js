@@ -6,6 +6,7 @@ var uglifyify  = require('uglifyify');
 var source     = require('vinyl-source-stream');
 var glob       = require('glob');
 var karma      = require('karma').server;
+var compass    = require('gulp-compass');
 
 gulp.task('build', function(){
   var files = glob.sync('./src/**/*.js');
@@ -15,6 +16,15 @@ gulp.task('build', function(){
   .bundle()
   .pipe(source('all.js'))
   .pipe(gulp.dest('public'));
+});
+
+gulp.task('compass', function(){
+  gulp.src('./src/styles/hoge.scss')
+      .pipe(compass({
+        style: 'compressed',
+        css: './public',
+        sass: './src/styles'
+      }));
 });
 
 gulp.task('server', ['build'], function(){
@@ -27,6 +37,7 @@ gulp.task('server', ['build'], function(){
 
 gulp.task('watch', ['server', 'test'], function(){
   gulp.watch(['./src/**/*.js'], ['build']);
+  gulp.watch(['./src/styles/**/*.scss'], ['compass']);
 });
 
 gulp.task('test', function(){
