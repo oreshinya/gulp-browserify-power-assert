@@ -9,5 +9,5 @@ npm install
 * auto build
 * auto test
 ```
-gulp watch
+gulp watch // Go to localhost:3001
 ```
