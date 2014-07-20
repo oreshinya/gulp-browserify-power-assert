@@ -19,7 +19,7 @@ gulp.task('build', function(){
 });
 
 gulp.task('compass', function(){
-  gulp.src('./src/styles/hoge.scss')
+  gulp.src('./src/styles/all.scss')
       .pipe(compass({
         style: 'compressed',
         css: './public',
