@@ -40,7 +40,7 @@ gulp.task('watch', ['server', 'test'], function(){
   gulp.watch(['./src/styles/**/*.scss'], ['compass']);
 });
 
-gulp.task('test', function(){
+var karmaTask = function(singleRun) {
   karma.start({
     browsers: ['PhantomJS', 'Chrome', 'Safari'],
     frameworks: ['mocha', 'browserify'],
@@ -53,6 +53,14 @@ gulp.task('test', function(){
     },
     reporters: 'dots',
     autoWatch: true,
-    singleRun: false
+    singleRun: singleRun
   });
+};
+
+gulp.task('test', function(){
+  karmaTask(false);
+});
+
+gulp.task('testSingle', function(){
+  karmaTask(true);
 });

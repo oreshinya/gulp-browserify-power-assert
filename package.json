@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp testSingle"
   },
   "author": "",
   "license": "MIT",
