@@ -2,7 +2,6 @@ var gulp       = require('gulp');
 var browserify = require('browserify');
 var connect    = require('gulp-connect');
 var partialify = require('partialify');
-var uglifyify  = require('uglifyify');
 var source     = require('vinyl-source-stream');
 var glob       = require('glob');
 var karma      = require('karma').server;
@@ -12,7 +11,7 @@ gulp.task('build', function(){
   var files = glob.sync('./src/**/*.js');
   browserify(files)
   .transform(partialify)
-  .transform(uglifyify)
+  .transform({global: true}, "uglifyify")
   .bundle()
   .pipe(source('all.js'))
   .pipe(gulp.dest('public'));
