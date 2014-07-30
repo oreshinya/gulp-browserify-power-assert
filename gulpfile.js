@@ -1,6 +1,6 @@
 var gulp       = require('gulp');
 var browserify = require('browserify');
-var connect    = require('gulp-connect');
+var webserver  = require('gulp-webserver');
 var partialify = require('partialify');
 var source     = require('vinyl-source-stream');
 var glob       = require('glob');
@@ -27,11 +27,11 @@ gulp.task('compass', function(){
 });
 
 gulp.task('server', ['build'], function(){
-  connect.server({
-    root: 'public',
-    port: 3001,
-    livereload: true
-  });
+  gulp.src("./public")
+      .pipe(webserver({
+        port: 3001,
+        livereload: true
+      }));
 });
 
 gulp.task('watch', ['server', 'test'], function(){
